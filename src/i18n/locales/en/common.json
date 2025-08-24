@@ -1,0 +1,13 @@
+{
+  "base_title": "Base screen",
+  "base_description": "This is where your app starts. Add components, lists, etc.",
+  "action_example": "Example action",
+  "settings_title": "Settings",
+  "language": "Language",
+  "theme": "Theme",
+  "theme_system": "System",
+  "theme_light": "Light",
+  "theme_dark": "Dark",
+  "lang_ro": "Romanian",
+  "lang_en": "English"
+}

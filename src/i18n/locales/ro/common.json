@@ -1,0 +1,13 @@
+{
+  "base_title": "Ecran de bază",
+  "base_description": "Aici începe aplicația ta. Adaugă componente, liste, etc.",
+  "action_example": "Exemplu acțiune",
+  "settings_title": "Setări",
+  "language": "Limbă",
+  "theme": "Temă",
+  "theme_system": "Sistem",
+  "theme_light": "Luminat",
+  "theme_dark": "Întunecat",
+  "lang_ro": "Română",
+  "lang_en": "Engleză"
+}
