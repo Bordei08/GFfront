@@ -9,5 +9,16 @@
   "theme_light": "Light",
   "theme_dark": "Dark",
   "lang_ro": "Romanian",
-  "lang_en": "English"
+  "lang_en": "English",
+  "welcome": "Welcome",
+  "subtitle": "Sign in to {{app}} to continue",
+  "email": "Email",
+  "password": "Password",
+  "login": "Log in",
+  "or": "or",
+  "continue_google": "Continue with Google",
+  "continue_facebook": "Continue with Facebook",
+  "continue_apple": "Sign in with Apple",
+  "terms": "By signing in, you agree to the Terms and Privacy Policy.",
+  "copyright": "© {{year}} {{app}}"
 }

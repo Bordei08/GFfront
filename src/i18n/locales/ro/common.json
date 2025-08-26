@@ -9,5 +9,16 @@
   "theme_light": "Luminat",
   "theme_dark": "Întunecat",
   "lang_ro": "Română",
-  "lang_en": "Engleză"
+  "lang_en": "Engleză",
+  "welcome": "Bine ai venit",
+  "subtitle": "Autentifică-te în {{app}} pentru a continua",
+  "email": "Email",
+  "password": "Parolă",
+  "login": "Log in",
+  "or": "sau",
+  "continue_google": "Continuă cu Google",
+  "continue_facebook": "Continuă cu Facebook",
+  "continue_apple": "Autentificare cu Apple",
+  "terms": "Prin autentificare ești de acord cu Termenii și Politica de confidențialitate.",
+  "copyright": "© {{year}} {{app}}"
 }
