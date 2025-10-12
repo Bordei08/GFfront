@@ -66,6 +66,9 @@ yarn-error.log
 # testing
 /coverage
 
+#tests
+__tests__\components\buttons\__snapshots__
+
 # Yarn
 .yarn/*
 !.yarn/patches
@@ -73,3 +76,5 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
