@@ -1,5 +1,6 @@
 export type TabsParamList = {
   Home: undefined;
+  Followers : undefined;
   Settings: undefined;
   Profile: undefined;
 };

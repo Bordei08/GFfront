@@ -1,32 +1,28 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-import { Home as LucideHome, Settings as LucideSettings, User as LucideUser } from 'lucide-react-native';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Base from '../screens/Base';
-import SettingsScreen from '../screens/SettingsScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import { useNavTheme } from '../theme/navigation';
+import Base from "../screens/Base";
+import SettingsScreen from "../screens/SettingsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import FollowersScreen from "../screens/FollowersScreen";
+import { useNavTheme } from "../theme/navigation";
+import { TabsParamList } from "./types";
 
-type TabsParamList = {
-  Home: undefined;
-  Settings: undefined;
-  Profile: undefined;
-};
+// SVG-uri
+import BaseFish from "../../assets/svg/base_fish.svg";
+import BaseFisher from "../../assets/svg/base_fisher.svg";
+import BaseSettings from "../../assets/svg/base_settings.svg";
+import BaseFollowers from "../../assets/svg/base_binocular.svg";
+
+// helper
+import { createTabBarIcon } from "../components/icons/createTabBarIcon";
 
 const Tab = createBottomTabNavigator<TabsParamList>();
 
-type TabBarIconFn = NonNullable<BottomTabNavigationOptions['tabBarIcon']>;
-
-function makeTabIcon(
-  Icon: React.ComponentType<{ color?: string; size?: number }>
-): TabBarIconFn {
-  return ({ color, size }) => <Icon color={color} size={size} />;
-}
-
-const HomeTabIcon = makeTabIcon(LucideHome);
-const SettingsTabIcon = makeTabIcon(LucideSettings);
-const ProfileTabIcon = makeTabIcon(LucideUser);
+const HomeTabIcon      = createTabBarIcon(BaseFish,      51);
+const FollowersTabIcon = createTabBarIcon(BaseFollowers, 51);
+const SettingsTabIcon  = createTabBarIcon(BaseSettings,  45);
+const ProfileTabIcon   = createTabBarIcon(BaseFisher,    47);
 
 export default function TabsNavigator() {
   const theme = useNavTheme();
@@ -39,21 +35,23 @@ export default function TabsNavigator() {
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.text,
         tabBarStyle: {
-          borderRadius: 15,
+          borderRadius: 14,
           backgroundColor: theme.colors.card,
           borderTopWidth: 0,
+          height: '12%',            
           elevation: 5,
-          shadowColor: '#000',
+          shadowColor: "#000",
           shadowOpacity: 0.1,
           shadowRadius: 8,
         },
-        tabBarItemStyle: { paddingVertical: 8 },
-        tabBarIconStyle: { marginTop: 4 },
+        tabBarItemStyle: { paddingVertical: 4 },
+        tabBarIconStyle: { marginTop: 2 },
       }}
     >
-      <Tab.Screen name="Home" component={Base} options={{ tabBarIcon: HomeTabIcon }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{ tabBarIcon: SettingsTabIcon }} />
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarIcon: ProfileTabIcon }} />
+      <Tab.Screen name="Home"      component={Base}           options={{ tabBarIcon: HomeTabIcon }} />
+      <Tab.Screen name="Followers" component={FollowersScreen} options={{ tabBarIcon: FollowersTabIcon }} />
+      <Tab.Screen name="Settings"  component={SettingsScreen}  options={{ tabBarIcon: SettingsTabIcon }} />
+      <Tab.Screen name="Profile"   component={ProfileScreen}   options={{ tabBarIcon: ProfileTabIcon }} />
     </Tab.Navigator>
   );
 }
