@@ -20,5 +20,6 @@
   "continue_facebook": "Continuă cu Facebook",
   "continue_apple": "Autentificare cu Apple",
   "terms": "Prin autentificare ești de acord cu Termenii și Politica de confidențialitate.",
-  "copyright": "© {{year}} {{app}}"
+  "copyright": "© {{year}} {{app}}",
+  "fishingTripButton" : "Adaugă o partidă nouă"
 }

@@ -6,6 +6,8 @@ export const colors = {
     primary: '#2E7D32',
     card: '#F5F5F5',
     border: '#E0E0E0',
+    brandGold: '#F2B31F',
+    brandBlue: '#7ED0EC',
   },
   dark: {
     bg: '#000000',
@@ -14,5 +16,7 @@ export const colors = {
     primary: '#66BB6A',
     card: '#121212',
     border: '#222222',
+    brandGold: '#F2B31F',
+    brandBlue: '#7ED0EC',
   },
 } as const;

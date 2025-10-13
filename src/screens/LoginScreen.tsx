@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -17,9 +17,8 @@ import { useTranslation } from 'react-i18next';
 import { colors } from '../theme/colors';
 import LoginBackgroundVideo from '../components/LoginBackgroundVideo';
 import SocialButton from '../components/buttons/SocialButton';
-import LanguageSelector from '../components/buttons/LanguageToggle';
 import appConfig from '../../app.json';
-
+import ScreenLoader from '../components/loaders/ScreenLoader';
 
 const SHOW_GOOGLE_ON_IOS = false;
 const SHOW_FACEBOOK_ON_IOS = true;
@@ -34,25 +33,25 @@ const LoginScreen: React.FC = () => {
   const T = themedStyles(c);
   const appName = appConfig.displayName;
   const navigation = useNavigation<LoginNav>();
+  const [loading, setLoading] = useState(false);
 
   const isIOS = Platform.OS === 'ios';
   const isAndroid = Platform.OS === 'android';
 
   const handleLogin = () => {
-    navigation.replace('Tabs');
+    setLoading(true);
+    setTimeout(() => {
+      navigation.replace('Tabs');
+      setLoading(false);
+    }, 1000);
   };
 
   return (
     <View style={base.root}>
       <LoginBackgroundVideo>
-        {/* butonul de schimbare limbă */}
-        <View style={base.langWrap}>
-          <LanguageSelector />
-        </View>
-
         <View style={base.container}>
           <View style={[base.card, T.cardBg, T.cardBorder, base.shadow]}>
-            {/* Header logo + titel */}
+            {/* Header logo + titlu */}
             <View style={base.header}>
               <View style={[base.logoWrap]}>
                 <Image
@@ -74,9 +73,7 @@ const LoginScreen: React.FC = () => {
               <SocialButton
                 icon={require('../../assets/auth/apple.png')}
                 text={t('continue_apple')}
-                onPress={() => {
-                  handleLogin();
-                }}
+                onPress={handleLogin}
                 backgroundColorLight="#000000"
                 backgroundColorDark="#000000"
                 textColorLight="#FFFFFF"
@@ -88,9 +85,7 @@ const LoginScreen: React.FC = () => {
               <SocialButton
                 icon={require('../../assets/auth/facebook.png')}
                 text={t('continue_facebook')}
-                onPress={() => {
-                  handleLogin();
-                }}
+                onPress={handleLogin}
                 backgroundColorLight="#1877F2"
                 backgroundColorDark="#1877F2"
                 textColorLight="#FFFFFF"
@@ -102,9 +97,7 @@ const LoginScreen: React.FC = () => {
               <SocialButton
                 icon={require('../../assets/auth/google.png')}
                 text={t('continue_google')}
-                onPress={() => {
-                  handleLogin();
-                }}
+                onPress={handleLogin}
                 backgroundColorLight="#FFFFFF"
                 backgroundColorDark="#000000"
                 textColorLight="#000000"
@@ -126,6 +119,9 @@ const LoginScreen: React.FC = () => {
           </Text>
         </View>
       </LoginBackgroundVideo>
+
+      {/* Overlay loading care imită splash screen */}
+      <ScreenLoader visible={loading} />
     </View>
   );
 };
@@ -147,8 +143,8 @@ const base = StyleSheet.create({
 
   header: { alignItems: 'center', marginBottom: 18 },
   logoWrap: {
-    width: 72,
-    height: 72,
+    width: 82,
+    height: 82,
     borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
@@ -158,10 +154,8 @@ const base = StyleSheet.create({
     borderColor: '#222222',
   },
   logo: { width: 46, height: 46, resizeMode: 'contain' },
-
-  title: { fontSize: 21, fontWeight: '800', textAlign: 'center' },
-  subtitle: { fontSize: 14, textAlign: 'center', marginTop: 4 },
-
+  title: { fontSize: 22, fontWeight: '800', textAlign: 'center' },
+  subtitle: { fontSize: 13, textAlign: 'center', marginTop: 4 },
   termsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -170,23 +164,23 @@ const base = StyleSheet.create({
     gap: 6,
   },
   terms: {
-    fontSize: 12,
+    fontSize: 10,
     textAlign: 'center',
   },
   footer: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 10,
     marginTop: 12,
     marginBottom: 12,
     opacity: 0.95,
     color: '#DDDD',
   },
-
-  langWrap: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 60 : 40, // un pic mai jos decât status bar
-    right: 20,
-    zIndex: 10,
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
   },
 });
 
@@ -196,8 +190,6 @@ const themedStyles = (c: typeof colors.light | typeof colors.dark) =>
     cardBorder: { borderColor: c.border },
     subText: { color: c.subtext },
     titleText: { color: c.text },
-    logoWrapBg: { backgroundColor: c.bg },
-    logoWrapBorder: { borderColor: c.border },
   });
 
 export default LoginScreen;

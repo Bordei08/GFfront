@@ -20,5 +20,6 @@
   "continue_facebook": "Continue with Facebook",
   "continue_apple": "Sign in with Apple",
   "terms": "By signing in, you agree to the Terms and Privacy Policy.",
-  "copyright": "© {{year}} {{app}}"
+  "copyright": "© {{year}} {{app}}",
+  "fishingTripButton" : "Add a new fishing trip"
 }

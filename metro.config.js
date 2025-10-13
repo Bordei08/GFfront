@@ -1,20 +1,30 @@
-// metro.config.js
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
+
 
 const defaultConfig = getDefaultConfig(__dirname);
 
-// combinăm mai multe pattern-uri într-un singur RegExp
+
 const combinedBlockList = new RegExp(
   [
-    '.*\\/android\\/build\\/.*',              // build la proiect
-    '.*\\/ios\\/Pods\\/.*',                   // Pods iOS
-    'node_modules\\/.*\\/android\\/build\\/.*'// build-uri în pachete (ex. async-storage)
-  ].join('|')
+    ".*\\/android\\/build\\/.*",              
+    ".*\\/ios\\/Pods\\/.*",                   
+    "node_modules\\/.*\\/android\\/build\\/.*" 
+  ].join("|")
 );
 
-module.exports = mergeConfig(defaultConfig, {
+
+const svgAndResolverConfig = {
+  transformer: {
+    babelTransformerPath: require.resolve("react-native-svg-transformer"),
+  },
   resolver: {
-    resolverMainFields: ['react-native', 'browser', 'main'],
+    assetExts: defaultConfig.resolver.assetExts.filter((ext) => ext !== "svg"),
+    sourceExts: [...defaultConfig.resolver.sourceExts, "svg"],
+
+    resolverMainFields: ["react-native", "browser", "main"],
+
     blockList: combinedBlockList,
   },
-});
+};
+
+module.exports = mergeConfig(defaultConfig, svgAndResolverConfig);
