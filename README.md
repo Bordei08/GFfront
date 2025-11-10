@@ -1,97 +1,80 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🐠 Golden Fish
 
-# Getting Started
+This repository contains **only the front-end (mobile app)** of the **Golden Fish** project, built with [React Native](https://reactnative.dev) using [`@react-native-community/cli`](https://github.com/react-native-community/cli).  
+The back-end and other components of the project are developed separately.  
+Currently, this mobile app is tested and supported **only on Android devices**.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Notes](#notes)
+- [Screenshots](#screenshots)
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## ⚙️ Getting Started
 
-```sh
-# Using npm
+> **Note:** Make sure you have completed the [React Native environment setup](https://reactnative.dev/docs/set-up-your-environment) for **React Native CLI (Android)** before running the app.
+
+### Step 1: Clone the repository
+
+```bash
+git clone <repo-url>
+cd GFfront
+```
+
+### Step 2: Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### Step 3: Start Metro
+
+```bash
 npm start
-
-# OR using Yarn
+# or
 yarn start
 ```
 
-## Step 2: Build and run your app
+### Step 4: Build and run on Android
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Open a new terminal (with Metro still running) and run:
 
-### Android
-
-```sh
-# Using npm
+```bash
 npm run android
+# or
 
-# OR using Yarn
 yarn android
 ```
 
-### iOS
+This will build and install the app on your connected Android device or emulator.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 🧩 Notes
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+  * Tested only on Android (for now).
+  * Make sure you have Android Studio and an emulator or a real device with USB debugging enabled.
+  * If you see errors, try cleaning the build with:
 
-```sh
-bundle install
+```bash
+  cd android && gradlew clean && cd ..
 ```
 
-Then, and every time you update your native dependencies, run:
+## 📸 Screenshots
 
-```sh
-bundle exec pod install
-```
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/140027a6-75c7-4cf2-9432-869405363332">
+    <img src="https://github.com/user-attachments/assets/140027a6-75c7-4cf2-9432-869405363332" width="230" alt="Golden Fish Screenshot 1" style="margin: 10px;"/>
+  </a>
+  <img src="https://github.com/user-attachments/assets/684d636e-c272-47e5-9cea-485538a59076" width="230" alt="Golden Fish Screenshot 2" style="margin: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/bde0b0a6-07e4-4577-9755-b8a084061998" width="230" alt="Golden Fish Screenshot 3" style="margin: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/e244d22d-b9cf-4139-ac9d-dcd65706c0f8" width="230" alt="Golden Fish Screenshot 4" style="margin: 10px;"/>
+</p>
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+<p align="center">
+  <em>Golden Fish mobile app — Android screenshots</em>
+</p>
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+  
